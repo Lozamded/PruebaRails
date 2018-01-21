@@ -25,3 +25,35 @@
 <br>
 
 <%= link_to 'New Todo', new_todo_path %>
+
+<div class="new-list">
+  <%= link_to new_todo_path do%>
+    <i class="fa fa-plus-square fa-3x" aria.hidden="true"></i>
+  <%end%>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="[ col-xs-12 col-sm-offet-2 col-sm-8 ]">
+      <ul class="tecno-listS">
+        <% @todos.each do |todo| %>
+          <li>
+            <time datetime="2018-1-21">
+              <span class="day"><%= todo.created_at.mday %></span>
+              <span class="month"><%= todo.created_at.strftime("%B").first(3) %></span>
+              <span class="year"><%= todo.created_at.year %></span>
+              <span class="time">ALL DAY</span>
+            </time>
+            <div class="info">
+              <h2 class="title"><%= todo.title %></h2>  
+            </div>
+
+            <td><%= link_to 'Show', todo %></td>
+            <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+            <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
