@@ -15,6 +15,9 @@ class TodosController < ApplicationController
   # GET /todos/new
   def new
     @todo = Todo.new
+    respond_to do |f|
+      f.js
+    end
   end
 
   # GET /todos/1/edit
@@ -28,7 +31,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
-        format.html { redirect_to @todo, notice: 'Has creado un todo.' }
+        format.html { redirect_to todos_url, notice: 'Has creado un todo.' }
         format.json { render :show, status: :created, location: @todo }
       else
         format.html { render :new }

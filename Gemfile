@@ -21,7 +21,11 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'bootstrap-sass'
 
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
 gem 'autoprefixer-rails'
+
+gem 'jquery-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
