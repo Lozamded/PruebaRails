@@ -3,6 +3,7 @@
 <h1>Veterinarios</h1>
 
 <h3>Actualmente eres <%= current_user.email %></h3>
+<%= link_to "Salir", destroy_user_session_path, :method=>:delete %>
 
 <div class="new-list">
   <%= link_to new_todo_path, :remote=>true do%>
