@@ -11,6 +11,9 @@ class TodosController < ApplicationController
   # GET /todos/1
   # GET /todos/1.json
   def show
+    respond_to do |f|
+      f.js
+    end
   end
 
   # GET /todos/new
@@ -47,7 +50,7 @@ class TodosController < ApplicationController
   def update
     respond_to do |format|
       if @todo.update(todo_params)
-        format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
+        format.html { redirect_to root_url, notice: 'Ha actualiazdo un todo.' }
         format.json { render :show, status: :ok, location: @todo }
       else
         format.html { render :edit }
@@ -61,14 +64,14 @@ class TodosController < ApplicationController
   def destroy
     @todo.destroy
     respond_to do |format|
-      format.html { redirect_to todos_url, notice: 'Todo was successfully destroyed.' }
+      format.html { redirect_to todos_url, notice: 'Ha destruido un todo.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_todo
+    def set_todo 
       @todo = Todo.find(params[:id])
     end
 
